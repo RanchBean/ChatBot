@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Base version of the 2015 Chatbot class. Only stub methods are provided. Students will complete methods as part
  * of the project.
  * @author ethr5627
- * @version 1.0 10/14/15
+ * @version 1.1 10/14/15 completed length checker method.
  */
 public class Chatbot
 {

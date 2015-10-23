@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
  * @author ethr5627
  * @version 1.0 10/21/2015
  */
-public class ChatPopup
+public class ChatView
  
 {
 	/**

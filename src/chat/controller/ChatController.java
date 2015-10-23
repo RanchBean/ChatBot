@@ -21,6 +21,18 @@ public class ChatController
 	
 	public void start()
 	{
-		ChatView.getAnswer("Hello " +Chatbot.getUserName());
+		ChatView.getAnswer("Hello " + Chatbot.getUserName());
+		chat();
 	}
+	
+	private void chat()
+	{
+		String textFromUser = ChatView.getAnswer("Talk to the chatbot");
+		while(Chatbot.lengthChecker(textFromUser))
+		{
+			textFromUser = ChatView.getAnswer("wow " + textFromUser);
+		}
+		
+	}
+	
 }

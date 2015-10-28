@@ -34,7 +34,11 @@ public class ChatController {
 			{
 				ChatView.getAnswer("Wow you love " + Chatbot.getContent());
 			}
-
+			if (Chatbot.memeChecker(textFromUser))
+			{
+				ChatView.getAnswer("Thats the Dankest Meme");
+			}
+				
 			textFromUser = ChatView.getAnswer("" + textFromUser);
 		}
 

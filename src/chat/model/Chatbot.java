@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Base version of the 2015 Chatbot class. Only stub methods are provided. Students will complete methods as part
  * of the project.
  * @author ethr5627
- * @version 1.2 10/23/15 Repaired get UserName Method and initialzed username Variable.
+ * @version 1.3 10/23/15 built and called buildMemesList method.
  */
 public class Chatbot
 {
@@ -14,6 +14,8 @@ public class Chatbot
 	private ArrayList<String> politicalTopicList;
 	private String userName;
 	private String content;
+	
+	
 	
 	/**
 	 * Creates an instance of the Chatbot with the supplied username.
@@ -25,11 +27,24 @@ public class Chatbot
 		this.politicalTopicList = new ArrayList<String>();
 		this.userName = userName;
 		this.content = "Dank Memes";
+		buildMemesList();
+		buildPoliticalTopicsList();
 	}
-	
+	/**
+	 * Puts all of the string in the memeslist into arraylist.
+	 */
 	private void buildMemesList()
 	{
-		
+		this.memesList.add("Cute Animals");
+		this.memesList.add("Doge");
+		this.memesList.add("Aleks Face");
+		this.memesList.add("Sarcasm the lost art");
+		this.memesList.add("CLG Fined");
+		this.memesList.add("Money in the bank");
+		this.memesList.add("Aron");
+		this.memesList.add("Porcelain Contact");
+		this.memesList.add("Dank Memes Can't Melt Playoff Dreams");
+		this.memesList.add("Doublelift's Trophy Case");
 	}
 	
 	private void buildPoliticalTopicsList()
@@ -66,7 +81,13 @@ public class Chatbot
 	 */
 	public boolean contentChecker(String currentInput)
 	{
-		return false;
+		boolean hasContent = false;
+		
+		if(currentInput.toLowerCase().contains(content.toLowerCase()))
+		{
+			hasContent = true;
+		}
+		return hasContent;
 	}
 	
 	/**
@@ -88,7 +109,16 @@ public class Chatbot
 	 */
 	public boolean memeChecker(String currentInput)
 	{
-		return false;
+		boolean hasMemes = false;
+		
+		for(String meme: memesList)
+		{
+			if(currentInput.equals(meme))
+			{
+				hasMemes = true;
+			}
+		}
+		return hasMemes;
 	}
 	
 	/**
@@ -106,7 +136,7 @@ public class Chatbot
 	 */
 	public String getContent()
 	{
-		return null;
+		return content;
 	}
 	
 	/**

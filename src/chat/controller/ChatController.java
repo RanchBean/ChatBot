@@ -7,7 +7,7 @@ import chat.model.Chatbot;
  * Controller for Chatbot.
  * 
  * @author ethr5627
- * @Version 1.2 10/23/2015 Displays Chatbot's userName Variable
+ * @Version 1.3 10/30/2015  Made changes to Meme Checker.
  */
 public class ChatController {
 	private Chatbot Chatbot;
@@ -26,7 +26,7 @@ public class ChatController {
 
 	private void chat() 
 	{
-		String textFromUser = ChatView.getAnswer("Talk to the chatbot");
+		String textFromUser = ChatView.getAnswer("What are we talking about? ");
 		while (Chatbot.lengthChecker(textFromUser)) 
 		{
 
@@ -34,12 +34,12 @@ public class ChatController {
 			{
 				ChatView.getAnswer("Wow you love " + Chatbot.getContent());
 			}
-			if (Chatbot.memeChecker(textFromUser))
+			else if (Chatbot.memeChecker(textFromUser))
 			{
-				ChatView.getAnswer("Thats the Dankest Meme");
+				ChatView.getAnswer("Thats not a meme!");
 			}
 				
-			textFromUser = ChatView.getAnswer("" + textFromUser);
+			textFromUser = ChatView.getAnswer(textFromUser);
 		}
 
 	}

@@ -38,13 +38,13 @@ public class Chatbot
 		this.memesList.add("Cute Animals");
 		this.memesList.add("Doge");
 		this.memesList.add("Aleks Face");
-		this.memesList.add("Sarcasm the lost art");
-		this.memesList.add("CLG Fined");
+		this.memesList.add("");
+		this.memesList.add("TSM DoubleLift");
 		this.memesList.add("Money in the bank");
 		this.memesList.add("Aron");
 		this.memesList.add("Porcelain Contact");
 		this.memesList.add("Dank Memes Can't Melt Playoff Dreams");
-		this.memesList.add("Doublelift's Trophy Case");
+		this.memesList.add("Always bet on paper");
 	}
 	
 	private void buildPoliticalTopicsList()
@@ -101,7 +101,48 @@ public class Chatbot
 		return false;
 	}
 	
-	
+	public String processQuestion(String currentInput)
+	{
+		String talkBack = "lets talk about salty bets.";
+		int randomTopic = (int) (Math.random() * 5); //Generates random number 0-4
+		
+		switch (randomTopic)
+		{
+		case 0:
+			if(contentChecker(currentInput))
+			{
+				talkBack = "You talked about the memes. What is your favorite meme?";
+			}
+			break;
+		case 1:
+			if(memeChecker(currentInput))
+			{
+				talkBack = "Thats a high quality meme right there! Where do you find your memes?";
+			}
+			break;
+		case 2:
+			if(politicalTopicChecker(currentInput))
+			{
+				talkBack = "I didnt know you were apart of that party! Who do you want to be president?";
+			}
+			break;
+		case 3:
+			if(currentInput.contains("TSM"))
+			{
+				talkBack = "Thats a long sentence. What is your favorite car?";
+			}
+			break;
+		case 4:				
+				talkBack = "Dank meme dude Baylife for life. ";
+			break;
+		default:
+			
+			break;
+			
+		}
+		return talkBack;
+		
+	}
 	/**
 	 * Checks to see that the supplied String value is in the current memesList variable.
 	 * @param currentInput The supplied String to be checked.

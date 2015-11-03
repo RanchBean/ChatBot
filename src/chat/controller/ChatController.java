@@ -29,7 +29,7 @@ public class ChatController {
 		String textFromUser = ChatView.getAnswer("What are we talking about? ");
 		while (Chatbot.lengthChecker(textFromUser)) 
 		{
-
+			
 			if (Chatbot.contentChecker(textFromUser)) 
 			{
 				ChatView.getAnswer("Wow you love " + Chatbot.getContent());

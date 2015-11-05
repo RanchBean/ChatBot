@@ -35,11 +35,15 @@ public class ChatController
 			
 			if (Chatbot.contentChecker(textFromUser)) 
 			{
-				ChatView.getAnswer("Dank meme bro!" + Chatbot.getContent());
+				ChatView.getAnswer("You like them " + Chatbot.getContent());
 			}
 			else if (Chatbot.memeChecker(textFromUser))
 			{
 				ChatView.getAnswer("Thats not a meme!");
+			}
+			if (Chatbot.memeChecker(textFromUser))
+			{
+				ChatView.getAnswer("Thats a dank meme broski");
 			}
 				
 			textFromUser = ChatView.getAnswer(textFromUser);

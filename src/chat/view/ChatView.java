@@ -5,7 +5,7 @@ import javax.swing.ImageIcon;
 /**
  * This class provides Chatbot Responses in PopupBox.
  * @author ethr5627
- * @version 1.1 11/5/2015 Added Constructor
+ * @version 1.2 11/5/2015 Added Icon to the window.
  */
 public class ChatView
  
@@ -26,7 +26,7 @@ public class ChatView
 	{
 		String answer = "";
 		
-		answer = JOptionPane.showInputDialog(null,displayMessage);
+		answer = JOptionPane.showInputDialog(null,displayMessage, windowMessage, JOptionPane.INFORMATION_MESSAGE, chatIcon, null, "Send message here.").toString();
 		
 		return answer;
 	}

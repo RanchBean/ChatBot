@@ -26,7 +26,10 @@ public class ChatView
 	{
 		String answer = "";
 		
-		answer = JOptionPane.showInputDialog(null,displayMessage, windowMessage, JOptionPane.INFORMATION_MESSAGE, chatIcon, null, "Send message here.").toString();
+		answer = JOptionPane.showInputDialog(null,displayMessage, 
+											windowMessage, JOptionPane.INFORMATION_MESSAGE, 
+											chatIcon, null, 
+											"Send message here.").toString();
 		
 		return answer;
 	}
@@ -36,7 +39,7 @@ public class ChatView
 	 */
 	public void displayResponse(String displayMessage)
 	{
-		JOptionPane.showMessageDialog(null, displayMessage);
+		JOptionPane.showMessageDialog(null, displayMessage,windowMessage,JOptionPane.PLAIN_MESSAGE, chatIcon);
 	}
 	
 }

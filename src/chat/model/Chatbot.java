@@ -129,7 +129,7 @@ public class Chatbot
 		case 3:
 			if(currentInput.contains("TSM"))
 			{
-				talkBack = "Thats a long sentence. What is your favorite car?";
+				talkBack = "Awesome meme dude! What is your favorite car?";
 			}
 			break;
 		case 4:				

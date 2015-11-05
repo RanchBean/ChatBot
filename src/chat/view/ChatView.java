@@ -5,7 +5,7 @@ import javax.swing.ImageIcon;
 /**
  * This class provides Chatbot Responses in PopupBox.
  * @author ethr5627
- * @version 1.2 11/5/2015 Added Icon to the window.
+ * @version 1.3 11/5/2015 Added output Icon to the window.
  */
 public class ChatView
  

@@ -9,17 +9,20 @@ import chat.model.Chatbot;
  * @author ethr5627
  * @Version 1.3 10/30/2015  Made changes to Meme Checker.
  */
-public class ChatController {
+public class ChatController 
+{
 	private Chatbot Chatbot;
 	private ChatView ChatView;
 
-	public ChatController() {
+	public ChatController() 
+	{
 		ChatView = new ChatView();
 		String user = ChatView.getAnswer("What is your name?");
 		Chatbot = new Chatbot(user);
 	}
 
-	public void start() {
+	public void start() 
+	{
 		ChatView.getAnswer("Hello " + Chatbot.getUserName());
 		chat();
 	}
@@ -32,7 +35,7 @@ public class ChatController {
 			
 			if (Chatbot.contentChecker(textFromUser)) 
 			{
-				ChatView.getAnswer("Wow you love " + Chatbot.getContent());
+				ChatView.getAnswer("Dank meme bro!" + Chatbot.getContent());
 			}
 			else if (Chatbot.memeChecker(textFromUser))
 			{

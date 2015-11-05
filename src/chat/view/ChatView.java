@@ -1,6 +1,7 @@
 package chat.view;
 
 import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
 /**
  * This class provides Chatbot Responses in PopupBox.
  * @author ethr5627
@@ -9,6 +10,13 @@ import javax.swing.JOptionPane;
 public class ChatView
  
 {
+	private String windowMessage;
+	private ImageIcon chatIcon;
+	public ChatView()
+	{
+		windowMessage = "Dank meme provided by chatbot";
+		chatIcon = new ImageIcon(getClass().getResource("images/souma.png"));
+	}
 	/**
 	 * Display a GUI Popup for collecting user text.
 	 * @param displayMessage

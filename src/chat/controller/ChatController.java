@@ -39,12 +39,9 @@ public class ChatController
 			}
 			else if (Chatbot.memeChecker(textFromUser))
 			{
-				ChatView.getAnswer("Thats not a meme!");
-			}
-			if (Chatbot.memeChecker(textFromUser))
-			{
 				ChatView.getAnswer("Thats a dank meme broski");
 			}
+			
 				
 			textFromUser = ChatView.getAnswer(textFromUser);
 		}

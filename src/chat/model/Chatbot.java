@@ -49,7 +49,17 @@ public class Chatbot
 	
 	private void buildPoliticalTopicsList()
 	{
-		
+		this.politicalTopicList.add("Hillary The Devil Clinton ");
+		this.politicalTopicList.add("Donald Trump");
+		this.politicalTopicList.add("Feel the Bern");
+		this.politicalTopicList.add("Republicans");
+		this.politicalTopicList.add("Democrats");
+		this.politicalTopicList.add("Jed Bush");
+		this.politicalTopicList.add("Ted Cruz");
+		this.politicalTopicList.add("");
+		this.politicalTopicList.add("");
+		this.politicalTopicList.add("");
+		this.politicalTopicList.add("");
 	}
 	
 	/**
@@ -98,7 +108,17 @@ public class Chatbot
 	 */
 	public boolean politicalTopicChecker(String currentInput)
 	{
-		return false;
+		boolean hasPoliticalTopics = false;
+		
+		for(String politicalTopics: politicalTopicList)
+		{
+			if(currentInput.toLowerCase().contains(politicalTopics.toLowerCase()))
+			{	
+			hasPoliticalTopics = true;
+			}
+		}
+		
+		return hasPoliticalTopics;
 	}
 	
 	public String processQuestion(String currentInput)

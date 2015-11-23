@@ -1,5 +1,6 @@
 package chat.controller;
 
+import chat.view.ChatFrame;
 import chat.view.ChatView;
 import chat.model.Chatbot;
 
@@ -9,17 +10,22 @@ import chat.model.Chatbot;
  * @author ethr5627
  * @Version 1.3 10/30/2015  Made changes to Meme Checker.
  */
-public class ChatController {
+public class ChatController 
+{
+	
 	private Chatbot Chatbot;
 	private ChatView ChatView;
+	private ChatFrame chatFrame;
 
 	public ChatController() {
 		ChatView = new ChatView();
 		String user = ChatView.getAnswer("What is your name?");
 		Chatbot = new Chatbot(user);
+		chatFrame = new ChatFrame(this);
 	}
 
-	public void start() {
+	public void start() 
+	{
 		ChatView.getAnswer("Hello " + Chatbot.getUserName());
 		chat();
 	}

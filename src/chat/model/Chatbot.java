@@ -78,9 +78,6 @@ public class Chatbot
 				hasLength = true;
 			}
 		}
-		
-		
-		
 		return hasLength;
 	}
 	
@@ -182,6 +179,16 @@ public class Chatbot
 		return hasMemes;
 	}
 	
+	public boolean quitChecker(String currentInput)
+	{
+		boolean hasQuit = false;
+		
+		if(currentInput.toLowerCase().equals("quit"))
+		{
+			hasQuit =true;
+		}
+		return hasQuit;
+	}
 	/**
 	 * Returns the username of this Chatbot instance.
 	 * @return The username of the Chatbot.

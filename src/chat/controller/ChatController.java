@@ -12,10 +12,7 @@ import chat.model.Chatbot;
  */
 public class ChatController 
 {
-<<<<<<< HEAD
-=======
-	
->>>>>>> FramePanelBranches
+
 	private Chatbot Chatbot;
 	private ChatView ChatView;
 	private ChatFrame chatFrame;
@@ -28,7 +25,7 @@ public class ChatController
 		chatFrame = new ChatFrame(this);
 	}
 
-	public void start() 
+	public void start()
 	{
 		ChatView.getAnswer("Hello " + Chatbot.getUserName());
 		chat();
@@ -54,5 +51,12 @@ public class ChatController
 		}
 
 	}
+
+	public ChatController getChatbot()
+	{
+		return Chatbot;
+	}
+	
+	public ChatController get
 
 }

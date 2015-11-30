@@ -11,7 +11,6 @@ public class ChatPanel extends JPanel
 	private JButton chatterButton;
 	private JTextArea chatterText;
 	private SpringLayout mainLayout;
-	private JTextField typingField;
 	
 	public ChatPanel(ChatController chatController)
 	{
@@ -19,9 +18,6 @@ public class ChatPanel extends JPanel
 		mainLayout = new SpringLayout();
 		chatterButton = new JButton("Clicking is awesome.");
 		chatterText = new JTextArea("Strong learn new word, Strong Learn respect. ");
-		typingField = new JTextField("",15);
-		typingField.setToolTipText("#BlameAdam2015");
-		
 		
 		setupPanel();
 		setupLayout();
@@ -32,8 +28,6 @@ public class ChatPanel extends JPanel
 		this.setLayout(mainLayout);
 		this.add(chatterButton);
 		this.add(chatterText);
-		add(typingField);
-		chatterText.setEnabled(false);
 		
 	}
 	private void setupLayout()
@@ -44,11 +38,8 @@ public class ChatPanel extends JPanel
 		mainLayout.putConstraint(SpringLayout.WEST, chatterText, -406, SpringLayout.EAST, this);
 		mainLayout.putConstraint(SpringLayout.SOUTH, chatterText, 229, SpringLayout.NORTH, this);
 		mainLayout.putConstraint(SpringLayout.EAST, chatterText, -39, SpringLayout.EAST, this);
-		mainLayout.putConstraint(SpringLayout.NORTH, typingField, -1, SpringLayout.NORTH, chatterButton);
-		mainLayout.putConstraint(SpringLayout.WEST, typingField, 10, SpringLayout.WEST, this);
 	}
 	private void setupListeners()
-	
 	{
 		chatterButton.addActionListener(new ActionListener()
 		{
@@ -58,10 +49,4 @@ public class ChatPanel extends JPanel
 			}
 		});
 	}
-	
-	public JTextField getTextField()
-	{
-		return typingField;
-	}
 }
-

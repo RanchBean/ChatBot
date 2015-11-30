@@ -52,11 +52,19 @@ public class ChatController
 
 	}
 
-	public ChatController getChatbot()
+	public Chatbot getChatbot()
 	{
 		return Chatbot;
 	}
 	
-	public ChatController get
+	public ChatView getChatView()
+	{
+		return ChatView;
+	}
 
+	public ChatFrame getBaseFrame()
+	{
+		return chatFrame;
+	}
+	
 }

@@ -35,8 +35,8 @@ public class Chatbot
 	 */
 	private void buildMemesList()
 	{
-		this.memesList.add("Cute Animals");
-		this.memesList.add("Doge");
+		this.memesList.add("cute animals");
+		this.memesList.add("doge");
 		this.memesList.add("Aleks Face");
 		this.memesList.add("");
 		this.memesList.add("TSM DoubleLift");
@@ -52,14 +52,13 @@ public class Chatbot
 		this.politicalTopicList.add("Hillary The Devil Clinton ");
 		this.politicalTopicList.add("Donald Trump");
 		this.politicalTopicList.add("Feel the Bern");
-		this.politicalTopicList.add("Republicans");
-		this.politicalTopicList.add("Democrats");
+		this.politicalTopicList.add("Republican");
+		this.politicalTopicList.add("Democrat");
 		this.politicalTopicList.add("Jed Bush");
 		this.politicalTopicList.add("Ted Cruz");
-		this.politicalTopicList.add("");
-		this.politicalTopicList.add("");
-		this.politicalTopicList.add("");
-		this.politicalTopicList.add("");
+		this.politicalTopicList.add("11/4/16");
+		this.politicalTopicList.add("Yes");
+		this.politicalTopicList.add("No");
 	}
 	
 	/**
@@ -189,6 +188,16 @@ public class Chatbot
 		}
 		return hasQuit;
 	}
+	
+	public boolean keyboardMashChecker(String currentInput)
+	{
+		boolean isMash = false;
+		if(currentInput.equals("sdf") || (currentInput.equals("dfg") || (currentInput.equals("cvb") || (currentInput.equals(",./")))))
+		{
+			isMash = true;
+		}
+		return isMash;
+	}
 	/**
 	 * Returns the username of this Chatbot instance.
 	 * @return The username of the Chatbot.
@@ -213,7 +222,7 @@ public class Chatbot
 	 */
 	public ArrayList<String> getMemesList()
 	{
-		return null;
+		return memesList;
 	}
 	
 	/**
@@ -222,7 +231,7 @@ public class Chatbot
 	 */
 	public ArrayList<String> getPoliticalTopicList()
 	{
-		return null;
+		return politicalTopicList;
 	}
 	
 	/**
@@ -231,6 +240,6 @@ public class Chatbot
 	 */
 	public void setContent(String content)
 	{
-		
+		this.content = content;
 	}
 }

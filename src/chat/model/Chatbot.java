@@ -122,6 +122,10 @@ public class Chatbot
 		String talkBack = "lets talk about salty bets.";
 		int randomTopic = (int) (Math.random() * 5); //Generates random number 0-4
 		
+		 if (keyboardMashChecker(currentInput))
+		 {
+			 return "#StoptheMash";
+		 }
 		switch (randomTopic)
 		{
 		case 0:

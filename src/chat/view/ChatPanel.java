@@ -3,6 +3,8 @@ package chat.view;
 import javax.swing.*;
 import java.awt.event.*;
 import chat.controller.ChatController;
+import java.awt.Color;
+import javax.swing.border.BevelBorder;
 
 public class ChatPanel extends JPanel
 {
@@ -17,14 +19,21 @@ public class ChatPanel extends JPanel
 	public ChatPanel(ChatController chatController)
 	
 	{
+		setForeground(Color.WHITE);
+		setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		setBackground(Color.BLUE);
+		
 		this.chatController = chatController;
 		mainLayout = new SpringLayout();
 		chatterButton = new JButton("Clicking is awesome.");
 		chatterText = new JTextArea("Strong learn new word, Strong Learn respect. ");
+		chatterText.setForeground(Color.LIGHT_GRAY);
+		chatterText.setBackground(Color.WHITE);
+		chatterText.setColumns(15);
+		chatterText.setLineWrap(true);
 		typingField = new JTextField("",15);
 		typingField.setToolTipText("#BlameAdam2015");
 		checkm8 = new JCheckBox("checkm8");
-		
 		
 		setupPanel();
 		setupLayout();
@@ -67,7 +76,14 @@ public class ChatPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				chatterText.setText("");
+				
+				//give text to chatbot √
+				//give chatbots answer √
+				String userText = typingField.getText();//grab user text √
+				String response = chatController.fromUserToChatbot(userText);//send text to controller √
+				chatterText.append("\nUser: " + userText);//display text √
+				chatterText.append("\nChatbot: " + response); //display answer √
+				typingField.setText(""); //clear user field √ 
 			}
 		});
 	}

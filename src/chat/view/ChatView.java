@@ -30,7 +30,6 @@ public class ChatView
 											windowMessage, JOptionPane.INFORMATION_MESSAGE, 
 											chatIcon, null, 
 											"Send message here.").toString();
-		
 		return answer;
 	}
 	/**

@@ -1,7 +1,6 @@
 package chat.controller;
 
-import chat.view.ChatFrame;
-import chat.view.ChatView;
+import chat.view.*;
 import chat.model.Chatbot;
 
 /**
@@ -27,8 +26,8 @@ public class ChatController
 
 	public void start()
 	{
-		ChatView.getAnswer("Hello " + Chatbot.getUserName());
-		chat();
+		//ChatView.getAnswer("Hello " + Chatbot.getUserName());
+		//chat();
 	}
 
 	private void chat() 
@@ -37,20 +36,32 @@ public class ChatController
 		while (Chatbot.lengthChecker(textFromUser)) 
 		{
 			
-			if (Chatbot.contentChecker(textFromUser)) 
-			{
-				ChatView.getAnswer("You like them " + Chatbot.getContent());
-			}
-			else if (Chatbot.memeChecker(textFromUser))
-			{
-				ChatView.getAnswer("Thats a dank meme broski");
-			}
-			
-				
+			textFromUser = Chatbot.processQuestion(textFromUser);	
 			textFromUser = ChatView.getAnswer(textFromUser);
 		}
 
 	}
+	public String fromUserToChatbot(String textFromUser)
+	{
+		String botResponse = "";
+		
+		if(Chatbot.quitChecker(textFromUser))
+		{
+			shutDown();
+		}
+		
+		botResponse = Chatbot.processQuestion(textFromUser);
+		
+		return botResponse;
+		
+	}
+	
+	private void shutDown()
+	{
+		ChatView.displayResponse("See ya l8tr Nerd, " + Chatbot.getUserName() + " See you in the salt mines");
+		System.exit(0);
+	}
+			
 
 	public Chatbot getChatbot()
 	{

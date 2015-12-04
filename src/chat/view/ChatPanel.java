@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.event.*;
 import chat.controller.ChatController;
 import java.awt.Color;
-import javax.swing.border.BevelBorder;
 
 public class ChatPanel extends JPanel
 {

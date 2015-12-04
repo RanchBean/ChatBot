@@ -7,7 +7,7 @@ import chat.model.Chatbot;
  * Controller for Chatbot.
  * 
  * @author ethr5627
- * @Version 1.3 10/30/2015  Made changes to Meme Checker.
+ * @Version 1.4 12/4/2015 Added documentation to Controller methods
  */
 public class ChatController 
 {
@@ -16,6 +16,9 @@ public class ChatController
 	private ChatView ChatView;
 	private ChatFrame chatFrame;
 
+	/*
+	 * Holds all the compents anc calls the frame and ChatBot
+	 */
 	public ChatController() 
 	{
 		ChatView = new ChatView();
@@ -40,6 +43,9 @@ public class ChatController
 		}
 
 	}
+	/*
+	 * Grabs text from user and inputs into chat bot
+	 */
 	public String fromUserToChatbot(String textFromUser)
 	{
 		String botResponse = "";
@@ -54,7 +60,9 @@ public class ChatController
 		return botResponse;
 		
 	}
-	
+	/*
+	 * shuts down the program
+	 */
 	private void shutDown()
 	{
 		ChatView.displayResponse("See ya l8tr Nerd, " + Chatbot.getUserName() + " See you in the salt mines");

@@ -20,15 +20,13 @@ public class ChatPanel extends JPanel
 	
 	{
 		setForeground(Color.WHITE);
-		setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		setBackground(Color.BLUE);
 		
 		this.chatController = chatController;
 		mainLayout = new SpringLayout();
 		chatterButton = new JButton("Clicking is awesome.");
 		chatterText = new JTextArea("Strong learn new word, Strong Learn respect. ");
-		chatterText.setForeground(Color.LIGHT_GRAY);
-		chatterText.setBackground(Color.WHITE);
+		
 		chatterText.setColumns(15);
 		chatterText.setLineWrap(true);
 		typingField = new JTextField("",15);
@@ -47,6 +45,8 @@ public class ChatPanel extends JPanel
 		this.add(chatterText);
 		add(typingField);
 		chatterText.setEnabled(false);
+		chatterText.setForeground(Color.LIGHT_GRAY);
+		chatterText.setBackground(Color.WHITE);
 		
 		
 		

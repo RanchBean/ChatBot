@@ -18,29 +18,25 @@ public class ChatPanel extends JPanel
 	
 	public ChatPanel(ChatController chatController)
 	
+	/**
+	 * Sets up listeners,panels,layout
+	 */
 	{
-		setForeground(Color.WHITE);
-		setBackground(new Color(128, 0, 0));
-		
+				
 		this.chatController = chatController;
 		mainLayout = new SpringLayout();
 		chatterButton = new JButton("Clicking is awesome.");
-		chatterButton.setForeground(new Color(0, 0, 0));
-		chatterButton.setBackground(new Color(250, 250, 210));
 		chatterText = new JTextArea("Strong learn new word, Strong Learn respect. ");
-		
-		chatterText.setColumns(15);
-		chatterText.setLineWrap(true);
-		typingField = new JTextField("",15);
-		typingField.setBackground(new Color(250, 250, 210));
-		typingField.setToolTipText("#BlameAdam2015");
 		checkm8 = new JCheckBox("checkm8");
-		checkm8.setBackground(new Color(250, 250, 210));
 		
 		setupPanel();
 		setupLayout();
 		setupListeners();
 	}
+	
+	/**
+	 * Holds all of the details about the panel and Object
+	 */
 	private void setupPanel()
 	
 	{
@@ -48,17 +44,25 @@ public class ChatPanel extends JPanel
 		this.add(chatterButton);
 		this.add(chatterText);
 		add(typingField);
+		add(checkm8);
+		setForeground(Color.WHITE);
+		setBackground(new Color(128, 0, 0));
 		chatterText.setEnabled(false);
 		chatterText.setForeground(new Color(0, 0, 0));
 		chatterText.setBackground(new Color(250, 250, 210));
+		chatterText.setColumns(15);
+		chatterText.setLineWrap(true);
+		typingField = new JTextField("",15);
+		typingField.setBackground(new Color(250, 250, 210));
+		typingField.setToolTipText("#BlameAdam2015");
+		chatterButton.setForeground(new Color(0, 0, 0));
+		chatterButton.setBackground(new Color(250, 250, 210));
+		checkm8.setBackground(new Color(250, 250, 210));
 		
-		
-		
-		add(checkm8);
 		
 	} 
 	 /**
-	  * 
+	  * holds all of the crap code 
 	  */
 	private void setupLayout()
 	
@@ -74,7 +78,9 @@ public class ChatPanel extends JPanel
 		mainLayout.putConstraint(SpringLayout.NORTH, checkm8, 6, SpringLayout.SOUTH, chatterText);
 		mainLayout.putConstraint(SpringLayout.EAST, checkm8, -145, SpringLayout.EAST, this);
 	}
-	
+	/**
+	 * Holds and sets the Listeners for buttons and typing fields.
+	 */
 	private void setupListeners()
 	
 	{

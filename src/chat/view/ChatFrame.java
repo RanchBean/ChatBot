@@ -15,6 +15,9 @@ public class ChatFrame extends JFrame
 			chatPanel = new ChatPanel(chatController);
 			setupFrame();
 		}
+		/**
+		 * Sets the parameters for the frame
+		 */
 		private void setupFrame()
 		{
 			this.setContentPane(chatPanel);

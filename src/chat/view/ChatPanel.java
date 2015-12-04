@@ -4,7 +4,11 @@ import javax.swing.*;
 import java.awt.event.*;
 import chat.controller.ChatController;
 import java.awt.Color;
-
+/**
+ * Holds all of the Objects in the Panel
+ * @author ethr5627
+ *
+ */
 public class ChatPanel extends JPanel
 {
 
@@ -42,8 +46,8 @@ public class ChatPanel extends JPanel
 		this.setLayout(mainLayout);
 		this.add(chatterButton);
 		this.add(chatterText);
-		add(typingField);
-		add(checkm8);
+		
+		
 		setForeground(Color.WHITE);
 		setBackground(new Color(128, 0, 0));
 		chatterText.setEnabled(false);
@@ -57,7 +61,8 @@ public class ChatPanel extends JPanel
 		chatterButton.setForeground(new Color(0, 0, 0));
 		chatterButton.setBackground(new Color(250, 250, 210));
 		checkm8.setBackground(new Color(250, 250, 210));
-		
+		add(typingField);
+		add(checkm8);
 		
 	} 
 	 /**

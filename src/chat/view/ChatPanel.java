@@ -20,18 +20,22 @@ public class ChatPanel extends JPanel
 	
 	{
 		setForeground(Color.WHITE);
-		setBackground(Color.BLUE);
+		setBackground(new Color(128, 0, 0));
 		
 		this.chatController = chatController;
 		mainLayout = new SpringLayout();
 		chatterButton = new JButton("Clicking is awesome.");
+		chatterButton.setForeground(new Color(0, 0, 0));
+		chatterButton.setBackground(new Color(250, 250, 210));
 		chatterText = new JTextArea("Strong learn new word, Strong Learn respect. ");
 		
 		chatterText.setColumns(15);
 		chatterText.setLineWrap(true);
 		typingField = new JTextField("",15);
+		typingField.setBackground(new Color(250, 250, 210));
 		typingField.setToolTipText("#BlameAdam2015");
 		checkm8 = new JCheckBox("checkm8");
+		checkm8.setBackground(new Color(250, 250, 210));
 		
 		setupPanel();
 		setupLayout();
@@ -45,15 +49,17 @@ public class ChatPanel extends JPanel
 		this.add(chatterText);
 		add(typingField);
 		chatterText.setEnabled(false);
-		chatterText.setForeground(Color.LIGHT_GRAY);
-		chatterText.setBackground(Color.WHITE);
+		chatterText.setForeground(new Color(0, 0, 0));
+		chatterText.setBackground(new Color(250, 250, 210));
 		
 		
 		
 		add(checkm8);
 		
-	}
-	
+	} 
+	 /**
+	  * 
+	  */
 	private void setupLayout()
 	
 	{

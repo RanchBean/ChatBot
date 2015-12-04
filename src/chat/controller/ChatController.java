@@ -16,7 +16,7 @@ public class ChatController
 	private ChatView ChatView;
 	private ChatFrame chatFrame;
 
-	/*
+	/**
 	 * Holds all the compents anc calls the frame and ChatBot
 	 */
 	public ChatController() 
@@ -43,7 +43,7 @@ public class ChatController
 		}
 
 	}
-	/*
+	/**
 	 * Grabs text from user and inputs into chat bot
 	 */
 	public String fromUserToChatbot(String textFromUser)
@@ -60,7 +60,7 @@ public class ChatController
 		return botResponse;
 		
 	}
-	/*
+	/**
 	 * shuts down the program
 	 */
 	private void shutDown()

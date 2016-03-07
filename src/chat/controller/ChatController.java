@@ -48,15 +48,15 @@ public class ChatController
 		}
 
 	}
-	
-	public void handleErrors(String error)
-	{
-		chatView.displayResponse(error);
-	}
 	public void sendTweet(String tweet)
 	{
 		myTwitter.sendTweet(tweet);
 	}
+	public void handleErrors(String error)
+	{
+		chatView.displayResponse(error);
+	}
+	
 	/**
 	 * Grabs text from user and inputs into chat bot
 	 */

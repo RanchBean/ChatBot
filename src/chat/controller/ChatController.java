@@ -2,6 +2,7 @@ package chat.controller;
 
 import chat.view.*;
 import chat.model.Chatbot;
+import chat.model.CTECTwitter;
 
 /**
  * Controller for Chatbot.
@@ -13,19 +14,23 @@ public class ChatController
 {
 
 	private Chatbot Chatbot;
-	private ChatView ChatView;
+	private ChatView chatView;
 	private ChatFrame chatFrame;
+	private CTECTwitter myTwitter;
+	
 
 	/**
 	 * Holds all the compents anc calls the frame and ChatBot
 	 */
 	public ChatController() 
 	{
-		ChatView = new ChatView();
-		String user = ChatView.getAnswer("What is your name?");
+		myTwitter = new CTECTwitter(this);
+		chatView = new ChatView();
+		String user = chatView.getAnswer("What is your name?");
 		Chatbot = new Chatbot(user);
 		chatFrame = new ChatFrame(this);
 	}
+	
 
 	public void start()
 	{
@@ -34,14 +39,23 @@ public class ChatController
 
 	private void chat() 
 	{
-		String textFromUser = ChatView.getAnswer("What are we talking about? ");
+		String textFromUser = chatView.getAnswer("What are we talking about? ");
 		while (Chatbot.lengthChecker(textFromUser)) 
 		{
 			
 			textFromUser = Chatbot.processQuestion(textFromUser);	
-			textFromUser = ChatView.getAnswer(textFromUser);
+			textFromUser = chatView.getAnswer(textFromUser);
 		}
 
+	}
+	
+	public void handleErrors(String error)
+	{
+		chatView.displayResponse(error);
+	}
+	public void sendTweet(String tweet)
+	{
+		myTwitter.sendTweet(tweet);
 	}
 	/**
 	 * Grabs text from user and inputs into chat bot
@@ -65,7 +79,7 @@ public class ChatController
 	 */
 	private void shutDown()
 	{
-		ChatView.displayResponse("See ya l8tr Nerd, " + Chatbot.getUserName() + " See you in the salt mines");
+		chatView.displayResponse("See ya l8tr Nerd, " + Chatbot.getUserName() + " See you in the salt mines");
 		System.exit(0);
 	}
 			
@@ -77,7 +91,7 @@ public class ChatController
 	
 	public ChatView getChatView()
 	{
-		return ChatView;
+		return chatView;
 	}
 
 	public ChatFrame getBaseFrame()

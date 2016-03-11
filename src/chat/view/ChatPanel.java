@@ -18,6 +18,10 @@ public class ChatPanel extends JPanel
 	private SpringLayout mainLayout;
 	private JTextField typingField;
 	private JCheckBox checkm8;
+	private JButton getTweet;
+	private JButton sendTweet;
+	private JButton analyzeTwitterButton;
+	
 	
 	public ChatPanel(ChatController chatController)
 	
@@ -31,6 +35,10 @@ public class ChatPanel extends JPanel
 		chatterButton = new JButton("Clicking is awesome.");
 		chatterText = new JTextArea("Strong learn new word, Strong Learn respect. ");
 		checkm8 = new JCheckBox("checkm8");
+		getTweet = new JButton("Tweet");
+		analyzeTwitterButton = new JButton("Check Twitter");
+		sendTweet = new JButton("TWEET");
+		
 		
 		setupPanel();
 		setupLayout();
@@ -46,7 +54,8 @@ public class ChatPanel extends JPanel
 		this.setLayout(mainLayout);
 		this.add(chatterButton);
 		this.add(chatterText);
-		
+		this.add(sendTweet);
+		this.add(analyzeTwitterButton);
 		
 		setForeground(Color.WHITE);
 		setBackground(new Color(128, 0, 0));
@@ -81,6 +90,10 @@ public class ChatPanel extends JPanel
 		mainLayout.putConstraint(SpringLayout.WEST, typingField, 10, SpringLayout.WEST, this);
 		mainLayout.putConstraint(SpringLayout.NORTH, checkm8, 6, SpringLayout.SOUTH, chatterText);
 		mainLayout.putConstraint(SpringLayout.EAST, checkm8, -145, SpringLayout.EAST, this);
+		mainLayout.putConstraint(SpringLayout.NORTH, sendTweet, 0, SpringLayout.NORTH, this);
+		mainLayout.putConstraint(SpringLayout.NORTH, analyzeTwitterButton, 0, SpringLayout.NORTH, sendTweet);
+		mainLayout.putConstraint(SpringLayout.WEST, sendTweet, 20, SpringLayout.WEST, this);
+		mainLayout.putConstraint(SpringLayout.EAST, analyzeTwitterButton, -21, SpringLayout.EAST, this);
 	}
 	/**
 	 * Holds and sets the Listeners for buttons and typing fields.
@@ -101,9 +114,26 @@ public class ChatPanel extends JPanel
 				chatterText.append("\nChatbot: " + response); //display answer √
 				typingField.setText(""); //clear user field √ 
 			}
-		});
-	}
+	});	
 	
+	sendTweet.addActionListener(new ActionListener()
+	{
+		public void actionPerformed(ActionEvent click)
+		{
+			chatController.sendTweet("no text to send");
+		}
+	}
+	);
+	analyzeTwitterButton.addActionListener(new ActionListener()
+	{
+		public void actionPerformed(ActionEvent click)
+		{
+			String user = typingField.getText();
+			String results = chatController.analyze(user);
+			chatterText.setText(results);
+		}
+	});
+}
 	public JTextField getTextField()
 	{
 		return typingField;

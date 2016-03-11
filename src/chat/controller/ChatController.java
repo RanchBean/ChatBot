@@ -56,7 +56,11 @@ public class ChatController
 	{
 		chatView.displayResponse(error);
 	}
-	
+	public String analyze(String userName)
+	{
+		String userAnalysis = "The Twitter user " + userName + "has ..";
+		return userAnalysis;
+	}
 	/**
 	 * Grabs text from user and inputs into chat bot
 	 */

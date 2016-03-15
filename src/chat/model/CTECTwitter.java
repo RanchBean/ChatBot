@@ -150,7 +150,7 @@ public class CTECTwitter
 				}
 			}
 		}
-		tweetResults = "The top word uin the tweets was " + wordsList.get(topWordLocation) + "and it was used " + topCount + " times";
+		tweetResults = "The top word in the tweets was " + wordsList.get(topWordLocation) + " and it was used " + topCount + " times";
 		return tweetResults;
 	}
 }

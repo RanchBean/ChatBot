@@ -2,6 +2,7 @@ package chat.model;
 
 import java.util.*;
 import java.io.*;
+
 import twitter4j.*;
 import chat.controller.ChatController;
 /*
@@ -127,6 +128,30 @@ public class CTECTwitter
 	}
 	return boringWords;
 	}
-	
+	public String topResults()
+	{
+		String tweetResults = "";
+		int topWordLocation = 0;
+		int topCount = 0;
+		for(int index = 0; index < wordsList.size(); index++)
+		{
+			int wordUseCount = 1;
+			
+			for(int spot = index + 1; spot < wordsList.size(); spot++)
+			{
+				if (wordsList.get(index).equals(wordsList.get(spot)))
+				{
+					wordUseCount++;
+				}
+				if(wordUseCount > topCount)
+				{
+					topCount = wordUseCount;
+					topWordLocation = index;
+				}
+			}
+		}
+		tweetResults = "The top word uin the tweets was " + wordsList.get(topWordLocation) + "and it was used " + topCount + " times";
+		return tweetResults;
+	}
 }
 

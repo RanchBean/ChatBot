@@ -1,7 +1,7 @@
 package chat.model;
 
 import java.util.*;
-
+import java.io.*;
 import twitter4j.*;
 import chat.controller.ChatController;
 /*
@@ -70,7 +70,7 @@ public class CTECTwitter
 				}
 			}
 		}
-		removeTwitterUsernamesFromList(wordsList);
+		//removeTwitterUsernamesFromList(wordsList);
 		return wordsList;
 	}
 	private void removeEmptyText()
@@ -97,5 +97,36 @@ public class CTECTwitter
 		}
 		return scrubbedString;
 	}
+	
+	private String[]importWordsToArray()
+	{
+	String[] boringWords;
+	int wordCount = 0;
+	try
+	{
+		Scanner wordFile = new Scanner(new File("commonWords.txt"));
+		while(wordFile.hasNext())
+		{
+			wordCount++;
+			wordFile.next();
+		}
+		wordFile.reset();
+		boringWords = new String[wordCount];
+		int boringWordsCount = 0;
+		while (wordFile.hasNext())
+		{
+			boringWords[boringWordsCount] = wordFile.next();
+			boringWordsCount++;
+		}
+		wordFile.close();
+	}
+	catch (FileNotFoundException error)
+	{
+		baseController.handleErrors(error.getMessage());
+		return new String[0];
+	}
+	return boringWords;
+	}
+	
 }
 

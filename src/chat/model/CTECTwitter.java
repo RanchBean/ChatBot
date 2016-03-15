@@ -55,11 +55,25 @@ public class CTECTwitter
 		removeCommonEnglishWords(wordsList);
 		removeEmptyText();
 	}
-	public List removeCommonEnglishWords(List<String> wordList)
+	private List removeCommonEnglishWords(List<String> wordList)
 	{
-		return null;
+		String[] boringWords = importWordsToArray();
+		for(int count = 0; count < wordsList.size(); count++)
+		{
+			for(int removeSpot = 0; removeSpot < boringWords.length; removeSpot++)
+			{
+				if(wordsList.get(count).equalsIgnoreCase(boringWords[removeSpot]))
+				{
+					wordsList.remove(count);
+					count--;
+					removeSpot = boringWords.length;
+				}
+			}
+		}
+		removeTwitterUsernamesFromList(wordsList);
+		return wordsList;
 	}
-	public void removeEmptyText()
+	private void removeEmptyText()
 	{
 		for(int spot = 0; spot < wordsList.size(); spot++)
 		{

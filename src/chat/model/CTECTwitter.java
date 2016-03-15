@@ -26,7 +26,7 @@ public class CTECTwitter
 	{
 		try
 		{
-			chatbotTwitter.updateStatus("I just tweeted from my Java Chatbot program! #APCSRocks @CTECNow Thanks @cscheerleader & @codyhenrichsen!");
+			chatbotTwitter.updateStatus("Ethan I just tweeted from my Java Chatbot program! #APCSRocks @CTECNow Thanks @cscheerleader & @codyhenrichsen!");
 		}
 		catch(TwitterException error)
 		{
@@ -65,7 +65,16 @@ public class CTECTwitter
 	}
 	public String removePunctuation(String currentString)
 	{
-		return null;
+		String punctuation = ".,'?:;\"(){}^[]<>-";
+		String scrubbedString = "";
+		for(int i = 0; i < currentString.length(); i++)
+		{
+			if(punctuation.indexOf(currentString.charAt(i)) == -1)
+			{
+				scrubbedString += currentString.charAt(i);
+			}
+		}
+		return scrubbedString;
 	}
 }
 

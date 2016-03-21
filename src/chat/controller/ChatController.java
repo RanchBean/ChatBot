@@ -53,6 +53,10 @@ public class ChatController
 	{
 		myTwitter.sendTweet(tweet);
 	}
+	public void investigateTweet(String searchWord)
+	{
+		myTwitter.investigation(searchWord);
+	}
 	public void handleErrors(String error)
 	{
 		chatView.displayResponse(error);

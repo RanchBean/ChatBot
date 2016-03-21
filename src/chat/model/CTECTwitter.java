@@ -37,6 +37,7 @@ public class CTECTwitter
 	}
 	public void loadTweets(String twitterHandle) throws TwitterException
 	{
+		
 		Paging statusPage = new Paging(1,200);
 		int page = 1;
 		while(page <= 10)
@@ -103,15 +104,15 @@ public class CTECTwitter
 	{
 	String[] boringWords;
 	int wordCount = 0;
-	try
-	{
-		Scanner wordFile = new Scanner(new File("commonWords.txt"));
+	
+		Scanner wordFile = new Scanner(getClass().getResourceAsStream("commonWords.txt"));
 		while(wordFile.hasNext())
 		{
 			wordCount++;
 			wordFile.next();
 		}
-		wordFile.reset();
+		wordFile.close();
+		wordFile = new Scanner(getClass().getResourceAsStream("commonWords.txt"));
 		boringWords = new String[wordCount];
 		int boringWordsCount = 0;
 		while (wordFile.hasNext())
@@ -120,13 +121,8 @@ public class CTECTwitter
 			boringWordsCount++;
 		}
 		wordFile.close();
-	}
-	catch (FileNotFoundException error)
-	{
-		baseController.handleErrors(error.getMessage());
-		return new String[0];
-	}
-	return boringWords;
+		return boringWords;
+	
 	}
 	public String topResults()
 	{
@@ -152,6 +148,28 @@ public class CTECTwitter
 		}
 		tweetResults = "The top word in the tweets was " + wordsList.get(topWordLocation) + " and it was used " + topCount + " times";
 		return tweetResults;
+	}
+	public String investigation(String searchWord)
+	{
+		String results = "";
+		Query query = new Query(searchWord);
+		query.setCount(100);
+		query.setGeoCode(new GeoLocation(40.587526, -111.869178),5,Query.MILES);
+		query.setSince("2016-1-1");
+		try
+		{
+			QueryResult result = chatbotTwitter.search(query);
+			results += "Count : " + result.getTweets().size();
+			for (Status tweet  : result.getTweets())
+			{
+				results += ("@" + tweet.getUser().getName() + ": " + tweet.getText() + "\n");
+			}
+		}
+		catch (TwitterException error)
+		{
+			error.printStackTrace();
+		}
+		return results;
 	}
 }
 

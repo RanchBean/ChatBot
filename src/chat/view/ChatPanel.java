@@ -18,9 +18,9 @@ public class ChatPanel extends JPanel
 	private SpringLayout mainLayout;
 	private JTextField typingField;
 	private JCheckBox checkm8;
-	private JButton getTweet;
 	private JButton sendTweet;
 	private JButton analyzeTwitterButton;
+	private JButton investigateTweet;
 	
 	
 	public ChatPanel(ChatController chatController)
@@ -35,27 +35,25 @@ public class ChatPanel extends JPanel
 		chatterButton = new JButton("Clicking is awesome.");
 		chatterText = new JTextArea("Strong learn new word, Strong Learn respect. ");
 		checkm8 = new JCheckBox("checkm8");
-		getTweet = new JButton("Tweet");
+		investigateTweet = new JButton("investigate");
 		analyzeTwitterButton = new JButton("Check Twitter");
 		sendTweet = new JButton("TWEET");
-		
 		
 		setupPanel();
 		setupLayout();
 		setupListeners();
 	}
-	
 	/**
 	 * Holds all of the details about the panel and Object
 	 */
 	private void setupPanel()
-	
 	{
 		this.setLayout(mainLayout);
 		this.add(chatterButton);
 		this.add(chatterText);
 		this.add(sendTweet);
 		this.add(analyzeTwitterButton);
+		this.add(investigateTweet);
 		
 		setForeground(Color.WHITE);
 		setBackground(new Color(128, 0, 0));
@@ -72,13 +70,11 @@ public class ChatPanel extends JPanel
 		checkm8.setBackground(new Color(250, 250, 210));
 		add(typingField);
 		add(checkm8);
-		
 	} 
 	 /**
 	  * holds all of the crap code 
 	  */
 	private void setupLayout()
-	
 	{
 		mainLayout.putConstraint(SpringLayout.SOUTH, chatterButton, -10, SpringLayout.SOUTH, this);
 		mainLayout.putConstraint(SpringLayout.EAST, chatterButton, -10, SpringLayout.EAST, this);
@@ -94,12 +90,13 @@ public class ChatPanel extends JPanel
 		mainLayout.putConstraint(SpringLayout.NORTH, analyzeTwitterButton, 0, SpringLayout.NORTH, sendTweet);
 		mainLayout.putConstraint(SpringLayout.WEST, sendTweet, 20, SpringLayout.WEST, this);
 		mainLayout.putConstraint(SpringLayout.EAST, analyzeTwitterButton, -21, SpringLayout.EAST, this);
+		mainLayout.putConstraint(SpringLayout.NORTH, investigateTweet, 0, SpringLayout.NORTH, sendTweet);
+		mainLayout.putConstraint(SpringLayout.EAST, investigateTweet, -27, SpringLayout.WEST, analyzeTwitterButton);
 	}
 	/**
 	 * Holds and sets the Listeners for buttons and typing fields.
 	 */
 	private void setupListeners()
-	
 	{
 		chatterButton.addActionListener(new ActionListener()
 		{
@@ -115,7 +112,6 @@ public class ChatPanel extends JPanel
 				typingField.setText(""); //clear user field √ 
 			}
 	});	
-	
 	sendTweet.addActionListener(new ActionListener()
 	{
 		public void actionPerformed(ActionEvent click)
@@ -132,8 +128,17 @@ public class ChatPanel extends JPanel
 			String results = chatController.analyze(user);
 			chatterText.setText(results);
 		}
-	});
-}
+	}
+	);
+	investigateTweet.addActionListener(new ActionListener()
+	{
+		public void actionPerformed(ActionEvent click)
+		{
+			chatController.investigateTweet("");
+		}	
+	}
+	);
+	}
 	public JTextField getTextField()
 	{
 		return typingField;

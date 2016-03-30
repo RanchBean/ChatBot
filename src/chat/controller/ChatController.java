@@ -70,7 +70,6 @@ public class ChatController
 		} 
 		catch (TwitterException error) 
 		{
-			// TODO Auto-generated catch block
 			handleErrors(error.getErrorMessage());
 		}
 		userAnalysis += myTwitter.topResults();

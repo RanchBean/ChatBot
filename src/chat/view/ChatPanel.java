@@ -36,7 +36,7 @@ public class ChatPanel extends JPanel
 		chatterText = new JTextArea("Strong learn new word, Strong Learn respect. ");
 		checkm8 = new JCheckBox("checkm8");
 		investigateTweet = new JButton("investigate");
-		analyzeTwitterButton = new JButton("Check Twitter");
+		analyzeTwitterButton = new JButton("Analyze");
 		sendTweet = new JButton("TWEET");
 		
 		setupPanel();
@@ -118,8 +118,8 @@ public class ChatPanel extends JPanel
 		{
 			chatController.sendTweet("no text to send");
 		}
-	}
-	);
+	});
+	
 	analyzeTwitterButton.addActionListener(new ActionListener()
 	{
 		public void actionPerformed(ActionEvent click)
@@ -128,16 +128,16 @@ public class ChatPanel extends JPanel
 			String results = chatController.analyze(user);
 			chatterText.setText(results);
 		}
-	}
-	);
+	});
+	
 	investigateTweet.addActionListener(new ActionListener()
 	{
 		public void actionPerformed(ActionEvent click)
 		{
 			chatController.investigateTweet("");
 		}	
-	}
-	);
+	});
+	
 	}
 	public JTextField getTextField()
 	{

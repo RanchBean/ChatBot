@@ -2,7 +2,6 @@ package chat.model;
 
 import java.util.*;
 import java.io.*;
-
 import twitter4j.*;
 import chat.controller.ChatController;
 /*
@@ -37,7 +36,6 @@ public class CTECTwitter
 	}
 	public void loadTweets(String twitterHandle) throws TwitterException
 	{
-		
 		Paging statusPage = new Paging(1,200);
 		int page = 1;
 		while(page <= 10)
@@ -111,6 +109,7 @@ public class CTECTwitter
 			wordCount++;
 			wordFile.next();
 		}
+		wordFile.reset();
 		wordFile.close();
 		wordFile = new Scanner(getClass().getResourceAsStream("commonWords.txt"));
 		boringWords = new String[wordCount];
@@ -159,7 +158,7 @@ public class CTECTwitter
 		try
 		{
 			QueryResult result = chatbotTwitter.search(query);
-			results += "Count : " + result.getTweets().size();
+			results += ("Count : " + result.getTweets().size() +"\n");
 			for (Status tweet  : result.getTweets())
 			{
 				results += ("@" + tweet.getUser().getName() + ": " + tweet.getText() + "\n");
